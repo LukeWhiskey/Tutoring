@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Responsive Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        #t:before {
+            margin: 9rem;
+            content: "Online tutoring";
+            position: absolute;
+            transform: rotate(300deg);
+            -webkit-transform: rotate(300deg);
+            color: rgb(187, 182, 182);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #header {
+            width: 100%;
+            height: auto;
+            background-image: url('Stasia1.png');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-top: -16px;
+            padding-bottom: 100px;
+        }
+
+        .col-lg-12 {
+            background-size: cover;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            scroll-snap-align: center;
+            display: inline-block;
+            white-space: normal;
+        }
+
+        .col-lg-6 {
+            background-color: rgba(0, 0, 20, 0.75);
+            padding: 40px;
+            text-align: center;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        .col-lg-4 {
+            margin-left: 0px;
+        }
+
+        .col {
+            transform: scale(0.75);
+        }
+
+        .subjm {
+            margin-top: 30px;
+        }
+
+        .d-block {
+            height: 500px;
+        }
+
+        #maths {
+            background-size: cover;
+            background-image: url('pap.jpg');
+            background-position: bottom center;
+        }
+
+        #engineering {
+        }
+
+        #medical {
+        }
+
+        #turkish {
+        }
+
+        #subjrow {
+            margin-top: 40px;
+            padding: 0px;
+            border: 1px solid rgb(10, 10, 10);
+        }
+
+        .subj {
+            text-align: center;
+            font-size: 20px;
+            background-color: rgba(40, 40, 255);
+            border: 2px solid rgb(10, 10, 10);
+            box-shadow: 5px 5px 10px rgb(20, 20, 20);
+            padding-top: 45px;
+            padding-bottom: 45px;
+            border-radius: 0.333vw;
+        }
+
+        @media (pointer:coarse) {
+            #touchSlide {
+                padding-top: 0px;
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                overflow-y: hidden;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+                display: inline-block;
+            }
+
+            #carouselIndicators {
+                display: none;
+            }
+
+            .subj:active {
+                background-color: rgb(0, 0, 90);
+                cursor: pointer;
+                box-shadow: 10px 10px 10px rgb(20, 20, 20);
+                margin-top: -5px;
+                margin-left: -5px;
+            }
+
+            .subj {
+                transition: 0.1s;
+            }
+        }
+
+        @media (pointer:fine) {
+            #touchSlide {
+                display: none;
+            }
+
+            #carouselIndicators {
+                display: block;
+            }
+
+            .subj:hover {
+                background-color: rgb(0, 0, 90);
+                transition: 0.15s;
+                cursor: pointer;
+                box-shadow: 10px 10px 10px rgb(20, 20, 20);
+                margin-top: -5px;
+                margin-left: -5px;
+            }
+        }
+
+        .row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .row {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media (max-width: 576px) {
+            p {
+                font-size: 2.25vw;
+            }
+
+            .row {
+                padding-top: 6vh;
+            }
+
+            .col-lg-4 {
+                margin-top: 6vw;
+            }
+        }
+
+        @media (min-width: 576px) {
+            p {
+                font-size: 1.75vw;
+            }
+
+            .row {
+                padding-top: 4vw;
+            }
+
+            .col-lg-4 {
+                margin-top: 4vw;
+            }
+        }
+
+        @media (min-width: 768px) {
+            p {
+                font-size: 1.45vw;
+            }
+
+            .subjm {
+                margin-top: 0px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-brand {
+                font-size: 2vw;
+                padding: 0.75vw;
+            }
+
+            .nav-link {
+                font-size: 1vw;
+                margin: 1vw;
+            }
+
+            .container-fluid text-center bg-dark py-3 {
+                font-size: 5vw;
+                margin: 1vw;
+            }
+
+            p {
+                font-size: 1.25vw;
+            }
+
+            .col-lg-4 {
+                margin-top: 0vw;
+                margin-left: 80px;
+            }
+
+            .row {
+                padding-top: 75px;
+            }
+
+            .cont {
+                padding: 5%;
+            }
+
+            .col-lg-6 {
+                transform: translate(50%);
+                margin-left: 0%;
+                width: 100%;
+            }
+
+            .col {
+                transform: scale(1);
+            }
+
+            .subj {
+                font-size: 1.25vw;
+                padding-top: 3vw;
+                padding-bottom: 3vw;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            p {
+                font-size: 16px;
+            }
+
+            .col-lg-6 {
+                max-width: 800px;
+                margin-left: calc(50% - 800px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <style>
+        * {
+            color: white;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3" style="box-shadow: -0px 10px 35px black;">
+        <a class="navbar-brand" href="#">Yaren Celik Online Tutoring</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Tutoring.html">About Me<a/>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="Pricing.html">Pricing<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Calender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="background-color: rgba(27, 27, 27, 0.75); padding: 40px;">
+                    <h2>Maths</h2>
+                    <p>ndnoiwiowioewdninen  nednioeini wenioew oniewinewnieiniewin e inoew nieniniew in wni ewni enwinioew inoew n ewne wnionweioni dwno inewo niwein eni ewninio eiein we</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="background-color: rgba(27, 27, 27, 0.75); padding: 40px;">
+                    <h2>Engineering</h2>
+                    <p>ndnoiwiowioewdninen  nednioeini wenioew oniewinewnieiniewin e inoew nieniniew in wni ewni enwinioew inoew n ewne wnionweioni dwno inewo niwein eni ewninio eiein we</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="background-color: rgba(27, 27, 27, 0.75); padding: 40px;">
+                    <h2>Medicine</h2>
+                    <p>ndnoiwiowioewdninen  nednioeini wenioew oniewinewnieiniewin e inoew nieniniew in wni ewni enwinioew inoew n ewne wnionweioni dwno inewo niwein eni ewninio eiein we</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="background-color: rgba(27, 27, 27, 0.75); padding: 40px;">
+                    <h2>Turkish</h2>
+                    <p>ndnoiwiowioewdninen  nednioeini wenioew oniewinewnieiniewin e inoew nieniniew in wni ewni enwinioew inoew n ewne wnionweioni dwno inewo niwein eni ewninio eiein we</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid text-center bg-dark py-3" style="margin-top: -16px; background-image: url('th.webp'); background-size: 100% 170%; background-position: top center; background-repeat: no-repeat;">
+        <div class="row" style="padding-top: 40px;">
+            <div class="col-6">
+                <h3 class="text-uppercase">Contact Me</h3>
+                <ul class="list-unstyled">
+                    <li>Phone: +1 123 456 7890</li>
+                    <li>Email: contact@example.com</li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <h3 class="text-uppercase">Follow Me</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row py-3">
+            <div class="col-sm-12">
+                <p class="text-muted">Copyright &copy; <?php echo date("Y"); ?> <a href="#">NastyaTutoring UTD</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(() => {
+            document.body.style.backgroundColor = "black";
+        });
+    </script>
+</body>
+</html>
