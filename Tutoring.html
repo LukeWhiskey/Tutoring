@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Responsive Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 1vw;
+            min-width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: rgb(5 5 20);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(52 58 64);
+        }
+
+        #t:before {
+            margin: 9rem;
+            content: "Online tutoring";
+            position: absolute;
+            transform: rotate(300deg);
+            -webkit-transform: rotate(300deg);
+            color: rgb(187, 182, 182);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #header {
+            width: 100%;
+            height: auto;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-top: -16px;
+            padding-bottom: 100px;
+        }
+
+        .col-lg-12 {
+            background-size: cover;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            scroll-snap-align: center;
+            display: inline-block;
+            white-space: normal;
+        }
+
+        .col-lg-6 {
+            background-color: rgba(0, 0, 20, 0.75);
+            padding: 40px;
+            text-align: center;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        .col-lg-4 {
+            margin-left: 0px;
+        }
+
+        .subjm {
+            margin-top: 30px;
+        }
+
+        .d-block {
+            height: 500px;
+        }
+
+        #maths, #engineering, #medical, #turkish {
+            background-size: cover;
+            background-position: bottom center;
+        }
+
+        #maths {
+            background-image: url('Assets/pap.jpg');
+        }
+
+        #engineering {
+            background-image: url('Assets/pap.jpg');
+        }
+
+        #medical {
+            background-image: url('Assets/pap.jpg');
+        }
+
+        #turkish {
+            background-image: url('Assets/pap.jpg');
+        }
+
+        #mathsBut {
+            background: linear-gradient(20deg, rgba(80 80 80 / 54%), rgba(80 80 80 / 69%)), url('Assets/pap.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+            #mathsBut:hover {
+                background: linear-gradient(20deg, rgba(255 255 255 / 54%), rgba(0 0 50 / 69%)), url('Assets/pap.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+        #engineeringBut {
+            background: linear-gradient(20deg, rgba(80 80 80 / 54%), rgba(80 80 80 / 69%)), url('Assets/pap.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+
+            #engineeringBut:hover {
+                background: linear-gradient(20deg, rgba(255 255 255 / 54%), rgba(0 0 50 / 69%)), url('Assets/pap.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+        #medicineBut {
+            background: linear-gradient(20deg, rgba(80 80 80 / 54%), rgba(80 80 80 / 69%)), url('Assets/pap.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+
+            #medicineBut:hover {
+                background: linear-gradient(20deg, rgba(255 255 255 / 54%), rgba(0 0 50 / 69%)), url('Assets/pap.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+        #turkishBut {
+            background: linear-gradient(20deg, rgba(80 80 80 / 54%), rgba(80 80 80 / 69%)), url('Assets/pap.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+
+            #turkishBut:hover {
+                background: linear-gradient(20deg, rgba(255 255 255 / 54%), rgba(0 0 50 / 69%)), url('Assets/pap.jpg');
+                background-size: cover;
+                background-position: center center;
+            }
+
+        #subjrow {
+            margin-top: 40px; 
+            padding: 0px;
+            border: 1px solid rgb(10, 10, 10);
+        }
+
+        .subj {
+            text-align: center;
+            background-size: cover;
+            background-position: center center;
+            border: 2px solid rgb(10, 10, 10);
+            box-shadow: 5px 5px 10px rgb(20, 20, 20);
+            padding-top: 50px;
+            padding-bottom: 50px;
+            border-radius: 0.333vw;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .col-lg-4 {
+            display: none;
+            top: 200px;
+            right: 0px;
+        }
+
+        .comm {
+            margin-top: 100px;
+            padding: 40px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            background-color: rgba(0, 0, 40, 0.75);
+            box-shadow: 5px 5px 20px black;
+            border: 2px solid black;
+            text-align: left;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 5vw;
+            opacity: 0;
+        }
+
+        .l {
+            margin-left: -9vw;
+        }
+
+        .ri {
+            margin-right: -9vw;
+        }
+
+        @media (pointer:coarse) {
+            #touchSlide {
+                padding-top: 0px;
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                overflow-y: hidden;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+                display: inline-block;
+            }
+
+            #carouselIndicators {
+                display: none;
+            }
+
+            .subj:active {
+                background-color: rgb(0, 0, 90);
+                cursor: pointer;
+                box-shadow: 10px 10px 10px rgb(20, 20, 20);
+                margin-top: -5px;
+                margin-left: -5px;
+            }
+            .subj {
+                transition: 0.1s;
+            }
+        }
+
+        @media (pointer:fine) {
+            #touchSlide {
+                display: none;
+            }
+
+            #carouselIndicators {
+                display: block;
+            }
+
+            .subj:hover {
+                transition: 0.15s;
+                cursor: pointer;
+                box-shadow: 10px 10px 10px rgb(20, 20, 20);
+                margin-top: -5px;
+                margin-left: -5px;  
+            }
+        }
+
+        .row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .row {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @media (max-width: 400px) {
+            .rev {
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+            p {
+                font-size: 2.25vw;
+            }
+
+            .row {
+                padding-top: 6vh;
+            }
+
+            .col-lg-4 {
+                margin-top: 6vw;
+            }
+        }
+
+        @media (min-width: 576px) {
+            p {
+                font-size: 1.75vw;
+            }
+
+            .row {
+                padding-top: 4vw;
+            }
+
+            .col-lg-4 {
+                margin-top: 4vw;
+            }
+
+            .rev {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            p {
+                font-size: 1.45vw;
+            }
+
+            .subjm {
+                margin-top: 0px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-brand {
+                font-size: 2vw;
+                padding: 0.75vw;
+            }
+
+            .nav-link {
+                font-size: 1vw;
+                margin: 1vw;
+            }
+
+            .container-fluid text-center bg-dark py-3 {
+                font-size: 5vw;
+                margin: 1vw;
+            }
+
+            p {
+                font-size: 1.25vw;
+            }
+
+            .col-lg-4 {
+                display: none;
+                top: 0px;
+                right: 200px;
+                margin-top: 0vw;
+                margin-left: 80px;
+            }
+
+            .row {
+                padding-top: 75px;
+            }
+
+            .cont {
+                padding: 5%;
+            }
+
+            .col-lg-6 {
+                transform: translate(50%);
+                margin-left: 0%;
+                width: 100%;
+            }
+
+            .subj {
+                padding-top: 25px;
+                padding-bottom: 25px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            p {
+                font-size: 16px;
+            }
+
+            .col-lg-6 {
+                max-width: 800px;
+                margin-left: calc(50% - 800px);
+            }
+        }
+
+        .pfade {
+            opacity: 0;
+            transition: 0.25s;
+            margin-top: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden;">
+    <script>
+        $(document).ready(() => {
+            document.body.style.backgroundColor = "black";
+            $('.col-lg-7').fadeIn(500);
+
+            $('.q').fadeIn(500);
+            $('.q').css("transition", "0.5s");
+            $('.q').css("margin-left", 0);
+            $('.w').fadeIn(900);
+            $('.e').fadeIn(1300);
+            $('.r').fadeIn(1500);
+            $('.q').css("transition", "0s");
+
+            $('.pfade').css("opacity", 1);
+            $('.pfade').css("position", "relative");
+            $('.pfade').css("margin-top", 0);
+            setTimeout(function () {
+                $('.pfade').css("transition", "0s");
+            }, 200);
+
+            setTimeout(function () {
+                $('.col-lg-4').fadeIn(500);
+                $('.col-lg-4').css('transition', '0.25s');
+                $('.col-lg-4').css('right', 0);
+                $('.col-lg-4').css('top', 0);
+            }, 0);
+        });
+    </script>
+    <script>
+        $(document).ready(() => {
+            window.onscroll = function () {
+                var offsetTop = window.pageYOffset;
+                var commTopArray = [];
+                for (var i = 0; i <= document.getElementsByClassName("comm").length; i++) {
+                    var commTop = document.getElementsByClassName("comm")[i].offsetTop + document.getElementsByClassName("comm")[i].clientHeight - window.innerHeight;
+                    commTopArray.push(commTop);
+                    if (document.getElementsByClassName("comm")[i].style.opacity == 0) {
+                        if (offsetTop > commTop) {
+                            document.getElementsByClassName("comm")[i].style.transition = "0.5s";
+                            document.getElementsByClassName("comm")[i].style.opacity = 100;
+                        }
+                    }
+                }
+            };
+        });
+    </script>
+    <style>
+        * {
+            color: white;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3" style="box-shadow: -0px 10px 35px black;">
+        <a class="navbar-brand" href="#">Yaren Celik Online Tutoring</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">About Me <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Calender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="header" style="background-image: url('Assets/Stasia1.png'); min-height: 700px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7" style="display: none; background-color: rgba(27, 27, 27, 0.75); padding: 40px;">
+                    <h2 style="margin-bottom: -2.5px;">Classes</h2>
+                    <div class="row row-cols-2 row-cols-md-4 g-md-2" style="padding-top: 15px; padding-bottom: 15px;">
+                        <div class="col q" style="display: none; margin-left: -150px;">
+                            <div class="subj" id="mathsBut">Maths</div>
+                        </div>
+                        <div class="col w" style="display: none;">
+                            <div class="subj" id="engineeringBut">Engineering</div>
+                        </div>
+                        <div class="col subjm e" style="display: none;">
+                            <div class="subj" id="medicineBut">Medicine</div>
+                        </div>
+                        <div class="col subjm r" style="display: none;">
+                            <div class="subj" id="turkishBut">Turkish</div>
+                        </div>
+                    </div>
+                    <div class="pfade">
+                        <h2>A little about me</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod.</p>
+                        <p>Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="background-color: rgba(27, 27, 27, 0.75); padding: 40px; max-height: 375px;">
+                    <h2>Contact</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="touchSlide">
+        <div class="col-lg-12" id="maths">
+            <div class="col-lg-6">
+                <h2>Maths</h2>
+                <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+            </div>
+        </div>
+        <div class="col-lg-12" id="engineering">
+            <div class="col-lg-6">
+                <h2>Engineering</h2>
+                <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+            </div>
+        </div>
+        <div class="col-lg-12" id="medical">
+            <div class="col-lg-6">
+                <h2>Medicine</h2>
+                <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+            </div>
+        </div>
+        <div class="col-lg-12" id="turkish">
+            <div class="col-lg-6">
+                <h2>Turkish</h2>
+                <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+            </div>
+        </div>
+    </div>
+    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-block w-100" id="maths">
+                    <div class="col-lg-6" style="margin-top: 75px; position: absolute;">
+                        <h2>Maths</h2>
+                        <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-block w-100" id="engineering">
+                    <div class="col-lg-6" style="margin-top: 75px; position: absolute;">
+                        <h2>Engineering</h2>
+                        <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-block w-100" id="medical">
+                    <div class="col-lg-6" style="margin-top: 75px; position: absolute;">
+                        <h2>Medicine</h2>
+                        <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-block w-100" id="turkish">
+                    <div class="col-lg-6" style="margin-top: 75px; position: absolute;">
+                        <h2>Turkish</h2>
+                        <p style="margin-top: 15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod, nunc sed consectetur fringilla, augue neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hendrerit in. Vivamus aliquam sed est eget viverra. Aenean a nisi nec eros volutpat euismod. Phasellus rhoncus, eros ut consectetur tincidunt, nisi sem dictum velit, vel aliquam velit purus quis sem. Nunc velit libero, bibendum et scelerisque nec, cursus nec tortor. Duis at dolor in orci porta vestibulum et in purus. Quisque elementum risus nec leo pellentesque, vitae blandit eros tempor. Ut sit amet viverra urna. Donec nec massa nibh. Duis sed enim auctor, viverra eros id, lobortis magna.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev" id="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next" id="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="rev" id="header" style="background-image: url('Assets/commBack.png'); background-size: 120% 100%; text-align: center; padding: 100px;">
+        <div class="container">
+            <div class="comm l commfade" style="margin-top: 0px;">"neque pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hend" - Luke Vbornik</div>
+            <div class="comm ri commfade">"e pharetra lorem, at ultrices purus turpis nec ipsum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hend" - Alex Jones</div>
+            <div class="comm l commfade">"sum. Nam vel velit vel velit suscipit consequat. In et volutpat metus. In gravida auctor lectus, sed vulputate eros hend" - Marc Jacobs</div>
+        </div>
+    </div>
+    <div id="header" style="padding-top: 110px; background-image: url('Assets/form.jpg');">
+        <div class="container" style="background-color: rgba(0, 0, 20, 0.75); padding: 40px;">
+            <h2>Contact Me For More</h2>
+            <form>
+                <div class="form-group" style="padding-top: 20px;">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary justify-content-center" style="margin-left: calc(50% - 75px); margin-top: 20px; padding: 10px; padding-left: 40px; padding-right: 40px;">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer class="container-fluid text-center bg-dark py-3" style="background-image: url('Assets/th.webp'); background-size: 100% 170%; background-position: top center; background-repeat: no-repeat;">
+        <div class="row" style="padding-top: 40px;">
+            <div class="col-6">
+                <h3 class="text-uppercase">Contact Me</h3>
+                <ul class="list-unstyled">
+                    <li>Phone: +1 123 456 7890</li>
+                    <li>Email: contact@example.com</li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <h3 class="text-uppercase">Follow Me</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row py-3">
+            <div class="col-sm-12">
+                <p class="text-muted">Copyright &copy; <?php echo date("Y"); ?> <a href="#">NastyaTutoring UTD</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
